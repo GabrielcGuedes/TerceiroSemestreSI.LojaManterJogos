@@ -1,0 +1,18 @@
+create table Cadastro(
+    codigo_cadastro serial,
+    nome varchar(70),
+    usuario varchar(70),
+   	senha varchar(70),
+    constraint codigo_cadastro_pk primary key (codigo_cadastro),
+    constraint usuarioun unique  (usuario)
+    );
+    create table ArmazenarJogo
+    (
+        codigo serial,
+        nomeJogo varchar (200),
+        preco numeric (10,2),
+        quantidade varchar(4),
+        codigo_cadastro_fk serial,
+        constraint codigo_pk primary key(codigo),
+        constraint codigocadastrofk foreign key (codigo_cadastro_fk) references Cadastro(codigo_cadastro)
+        );
